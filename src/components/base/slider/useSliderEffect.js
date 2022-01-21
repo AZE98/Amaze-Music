@@ -1,7 +1,7 @@
 import BScroll from '@better-scroll/core'
 import Slide from '@better-scroll/slide'
 
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 BScroll.use(Slide)
 
@@ -21,6 +21,9 @@ export default function useSliderEffect(wrapperRef) {
     slider.value.on('slideWillChange', (page) => {
       currentPageIndex.value = page.pageX
     })
+  })
+  onUnmounted(() => {
+    slider.value.destroy()
   })
   return { currentPageIndex }
 }

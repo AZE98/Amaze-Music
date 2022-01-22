@@ -702,15 +702,16 @@ function registerSearch(app) {
 
         const { curnum, curpage, totalnum } = songData
         const hasMore = 20 * (curpage - 1) + curnum < totalnum
-
-        res.json({
-          code: ERR_OK,
-          result: {
-            songs: songList,
-            singer,
-            hasMore
-          }
-        })
+        setTimeout(() => {
+          res.json({
+            code: ERR_OK,
+            result: {
+              songs: songList,
+              singer,
+              hasMore
+            }
+          })
+        }, 3000)
       } else {
         res.json(data)
       }

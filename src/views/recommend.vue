@@ -1,22 +1,24 @@
 <template>
   <div class="recommend">
     <Scroll class="recommend__content">
-      <div class="recommend__slider">
-        <Slider v-if="sliders.length" :sliders="sliders" />
-      </div>
-      <div class="recommend__list">
-        <h2 class="recommend__list__title">热门歌单推荐</h2>
-        <ul>
-          <li class="recommend__list__item" v-for="item in albums" :key="item.id">
-            <div class="recommend__list__item__img">
-              <img :src="item.pic" :alt="item.id" />
-            </div>
-            <div class="recommend__list__item__text">
-              <h3>{{ item.username }}</h3>
-              <p>{{ item.title }}</p>
-            </div>
-          </li>
-        </ul>
+      <div>
+        <div class="recommend__slider">
+          <Slider v-if="sliders.length" :sliders="sliders" />
+        </div>
+        <div class="recommend__list">
+          <h2 class="recommend__list__title">热门歌单推荐</h2>
+          <ul>
+            <li class="recommend__list__item" v-for="item in albums" :key="item.id">
+              <div class="recommend__list__item__img">
+                <img :src="item.pic" :alt="item.id" />
+              </div>
+              <div class="recommend__list__item__text">
+                <h3>{{ item.username }}</h3>
+                <p>{{ item.title }}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </Scroll>
   </div>
